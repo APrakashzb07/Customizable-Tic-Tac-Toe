@@ -1,0 +1,179 @@
+/* Root variables for easy theming and reusability */
+:root {
+  --primary-color: #6C63FF; /* Primary color for borders and buttons */
+  --secondary-color: #4CAF50; /* Secondary color for focused input fields */
+  --background-color: #F0F4F8; /* Background color for the body */
+  --text-color: #333; /* Default text color */
+  --cell-size: 60px; /* Default size for the Tic-Tac-Toe cells */
+}
+
+/* Universal selector to set box-sizing and remove default margin/padding */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling for the body to center the content and set background */
+body {
+  font-family: 'Roboto', sans-serif; /* Font for the entire body */
+  background-color: var(--background-color); /* Background color set from root variable */
+  color: var(--text-color); /* Default text color */
+  line-height: 1.6; /* Line height for better readability */
+  display: flex; /* Flexbox for centering the content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full screen height */
+  padding: 20px; /* Padding around the body */
+}
+
+/* Main container styling */
+.container {
+  background-color: #ACE1AF; /* Light green background */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 30px; /* Padding inside the container */
+  max-width: 1000px; /* Maximum width for responsiveness */
+  width: 100%; /* Full width */
+  text-align: center; /* Center align text */
+  border: 2px solid #4B0082; /* Dark purple border */
+}
+
+/* Main heading styling */
+h1 {
+  color: #960018; /* Dark red color */
+  margin-bottom: 20px; /* Space below the heading */
+  font-size: 2.5rem; /* Large font size */
+}
+
+/* Flexbox for setup and game containers */
+#setup, #game-container {
+  display: flex;
+  flex-direction: column; /* Arrange items in column */
+  gap: 20px; /* Space between items */
+}
+
+/* Label styling */
+label {
+  font-weight: bold; /* Bold text */
+  color: var(--text-color); /* Text color */
+  display: block; /* Block element */
+  margin-bottom: 5px; /* Space below label */
+}
+
+/* Input field styling for grid size and win condition */
+input[type="number"] {
+  padding: 10px; /* Padding inside input */
+  border: 2px solid var(--primary-color); /* Border color from root variable */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  width: 100%; /* Full width */
+  transition: border-color 0.3s; /* Smooth transition on focus */
+}
+
+/* Input focus styling */
+input[type="number"]:focus {
+  outline: none; /* Remove default outline */
+  border-color: var(--secondary-color); /* Change border color on focus */
+}
+
+/* Button styling */
+button {
+  background-color: var(--primary-color); /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  padding: 12px 20px; /* Padding inside button */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 18px; /* Font size */
+  transition: background-color 0.3s, transform 0.1s; /* Smooth transition on hover and click */
+  width: 100%; /* Full width button */
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #5A52D5; /* Darker color on hover */
+}
+
+/* Button active state (when clicked) */
+button:active {
+  transform: scale(0.98); /* Slightly scale down on click */
+}
+
+/* Game board styling with grid display */
+#game-board {
+  display: grid; /* CSS Grid layout */
+  gap: 10px; /* Space between cells */
+  margin-top: 20px; /* Space above the game board */
+  justify-content: center; /* Center the board */
+}
+
+/* Individual cell styling for Tic-Tac-Toe */
+.cell {
+  width: var(--cell-size); /* Set cell width from root variable */
+  height: var(--cell-size); /* Set cell height from root variable */
+  border: 3px solid var(--primary-color); /* Border color */
+  border-radius: 12px; /* Rounded corners */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Center X and O horizontally */
+  align-items: center; /* Center X and O vertically */
+  font-size: 28px; /* Large font size for X and O */
+  cursor: pointer; /* Pointer cursor */
+  transition: all 0.3s; /* Smooth transition for hover effect */
+  background-color: white; /* Background color */
+}
+
+/* Cell hover effect */
+.cell:hover {
+  background-color: #E8E8FF; /* Light purple background on hover */
+  transform: scale(1.05); /* Slightly enlarge the cell on hover */
+}
+
+/* Cell styling for "X" symbol */
+.cell.x {
+  color: #FF6B6B; /* Red color for X */
+}
+
+/* Cell styling for "O" symbol */
+.cell.o {
+  color: #4ECDC4; /* Teal color for O */
+}
+
+/* Message area styling for game result (win/draw message) */
+#message {
+  margin-top: 20px; /* Space above the message */
+  font-weight: bold; /* Bold text */
+  font-size: 20px; /* Larger font size */
+  color: #DE3163; /* Pink color for the message */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 480px) {
+  .container {
+      padding: 20px; /* Reduce container padding on smaller screens */
+  }
+
+  h1 {
+      font-size: 2rem; /* Reduce heading size on smaller screens */
+  }
+
+  :root {
+      --cell-size: 50px; /* Reduce cell size on smaller screens */
+  }
+
+  .cell {
+      font-size: 24px; /* Reduce font size for X and O on smaller screens */
+  }
+}
+
+/* Keyframe animation for pop effect (when a cell is clicked) */
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Pop class to trigger the pop animation */
+.pop {
+  animation: pop 0.3s ease-in-out;
+}

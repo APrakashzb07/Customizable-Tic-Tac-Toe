@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata and external stylesheets -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tic-Tac-Toe</title>
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main container for the Tic-Tac-Toe game -->
+    <div class="container">
+        <!-- Main heading for the game -->
+        <h1>Tic-Tac-Toe</h1>
+
+        <!-- Setup section where users define the grid size and win condition -->
+        <div id="setup">
+            <!-- Input for selecting the grid size, with a range between 3 and 10 -->
+            <div>
+                <label for="grid-size">Grid Size (3-10):</label>
+                <input type="number" id="grid-size" min="3" max="10" value="3">
+            </div>
+            <!-- Input for setting the win condition, with a range between 3 and 10 -->
+            <div>
+                <label for="win-condition">Win Condition:</label>
+                <input type="number" id="win-condition" min="3" max="10" value="3">
+            </div>
+            <!-- Button to start the game after selecting the grid size and win condition -->
+            <button onclick="startGame()">Start Game</button>
+        </div>
+
+        <!-- Section for the game board and messages, hidden initially (display: none) -->
+        <div id="game-container" style="display: none;">
+            <!-- The game board where the grid is generated dynamically -->
+            <div id="game-board"></div>
+            <!-- Message area to display game results like winning or draw -->
+            <div id="message"></div>
+            <!-- Button to start a new game after a win or reset -->
+            <button onclick="resetGame()">New Game</button>
+        </div>
+    </div>
+
+    <!-- Link to the external JavaScript file for game functionality -->
+    <script src="script.js"></script>
+</body>
+</html>
